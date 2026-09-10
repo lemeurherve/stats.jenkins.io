@@ -1,3 +1,11 @@
+@Library('pipeline-library@pull/1055/head') _
+
+buildWebsite([
+  publicFolder: 'dist',
+  preBuildCommand: 'INFRASTATISTICS_LOCATION=src/data/infra-statistics ./retrieve-infra-statistics-data.sh'
+])
+
+/*
 // Do not trigger daily if not on the principal branch (e.g. not on PR, not on other branches, not on tags)
 String cronPattern = env.BRANCH_IS_PRIMARY ? '@daily' : ''
 
@@ -115,3 +123,4 @@ pipeline {
     }
   }
 }
+*/
